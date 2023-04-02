@@ -1,0 +1,53 @@
+Disassembly Listing for Blink128MC802
+Generated From:
+/home/baltazar/Dropbox/Escom/Dspic/33EPFamily/DSPIC33FJ/GitAlumnosESCOM/C/dsPIC33FJ128MC802/Blink128MC802.X/dist/default/debug/Blink128MC802.X.debug.elf
+Apr 2, 2023 3:27:10 AM
+
+---  /home/baltazar/Dropbox/Escom/Dspic/33EPFamily/DSPIC33FJ/GitAlumnosESCOM/C/dsPIC33FJ128MC802/Blink128MC802.X/mainBlink802.c
+1:                 /* 
+2:                  * File:   mainBlink802.c
+3:                  * Author: Baltazar
+4:                  *
+5:                  * Created on April 2, 2023, 12:57 AM
+6:                  */
+7:                 
+8:                 #include <stdio.h>
+9:                 #include <stdlib.h>
+10:                #include <stdint.h>
+11:                #include "ConfigFOSC.h"
+12:                #include <libpic30.h>
+13:                #include <xc.h>
+14:                
+15:                /*
+16:                 * 
+17:                 */
+18:                int main(int argc, char** argv) {
+0002CE  FA0004     LNK #0x4
+0002D0  780F00     MOV W0, [W14]
+0002D2  E8800E     INC2 W14, W0
+0002D4  780801     MOV W1, [W0]
+19:                    AD1PCFGL = 0XFFFF;  //Configure pins ANX as digital (5 Analog pins))
+0002D6  EB8000     SETM W0
+0002D8  881960     MOV W0, AD1PCFGL
+20:                    TRISB = 0XFF00;     //Configure PORTB <15:8> as inputs and <7:0> as ouputs
+0002DA  2FF000     MOV #0xFF00, W0
+0002DC  881640     MOV W0, TRISB
+21:                                          
+22:                    for (;;)
+23:                    {
+24:                        PORTB ^= 0X00FF;
+0002DE  801651     MOV PORTB, W1
+0002E0  200FF0     MOV #0xFF, W0
+0002E2  688000     XOR W1, W0, W0
+0002E4  881650     MOV W0, PORTB
+25:                        __delay_ms(100);        
+0002E6  29F740     MOV #0x9F74, W0
+0002E8  200051     MOV #0x5, W1
+0002EA  070001     RCALL ___delay32, .Letext0, .LFE0
+26:                        
+27:                    }
+0002EC  37FFF8     BRA .L2
+28:                
+29:                    return (EXIT_SUCCESS);
+30:                }
+31:                
