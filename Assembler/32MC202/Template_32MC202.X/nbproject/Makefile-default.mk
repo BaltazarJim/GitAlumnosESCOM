@@ -44,6 +44,12 @@ else
 COMPARISON_BUILD=
 endif
 
+ifdef SUB_IMAGE_ADDRESS
+SUB_IMAGE_ADDRESS_COMMAND=--image-address $(SUB_IMAGE_ADDRESS)
+else
+SUB_IMAGE_ADDRESS_COMMAND=
+endif
+
 # Object Directory
 OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 
@@ -95,14 +101,14 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/BLINK33MC202.o: BLINK33MC202.s  .generated_files/flags/default/c57c868d95fa0b00e2ff7ae2345bc458d69f45b6 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/BLINK33MC202.o: BLINK33MC202.s  .generated_files/flags/default/c57c868d95fa0b00e2ff7ae2345bc458d69f45b6 .generated_files/flags/default/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/BLINK33MC202.o.d 
 	@${RM} ${OBJECTDIR}/BLINK33MC202.o 
 	${MP_CC} $(MP_EXTRA_AS_PRE)  BLINK33MC202.s  -o ${OBJECTDIR}/BLINK33MC202.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -omf=elf -DXPRJ_default=$(CND_CONF)    -Wa,-MD,"${OBJECTDIR}/BLINK33MC202.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp="${DFP_DIR}/xc16"
 	
 else
-${OBJECTDIR}/BLINK33MC202.o: BLINK33MC202.s  .generated_files/flags/default/7abbdeb10a1038159196b52619fec12d17d9171c .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+${OBJECTDIR}/BLINK33MC202.o: BLINK33MC202.s  .generated_files/flags/default/7abbdeb10a1038159196b52619fec12d17d9171c .generated_files/flags/default/74d464f3899599845d713a1d015fd0bf2695bd19
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/BLINK33MC202.o.d 
 	@${RM} ${OBJECTDIR}/BLINK33MC202.o 

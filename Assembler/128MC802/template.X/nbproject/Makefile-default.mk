@@ -44,12 +44,6 @@ else
 COMPARISON_BUILD=
 endif
 
-ifdef SUB_IMAGE_ADDRESS
-SUB_IMAGE_ADDRESS_COMMAND=--image-address $(SUB_IMAGE_ADDRESS)
-else
-SUB_IMAGE_ADDRESS_COMMAND=
-endif
-
 # Object Directory
 OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 
@@ -101,14 +95,14 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/mainasm33.o: mainasm33.s  .generated_files/flags/default/8a5cf111d3766d41bcf335d72559e96496174fae .generated_files/flags/default/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/mainasm33.o: mainasm33.s  .generated_files/flags/default/8a5cf111d3766d41bcf335d72559e96496174fae .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/mainasm33.o.d 
 	@${RM} ${OBJECTDIR}/mainasm33.o 
 	${MP_CC} $(MP_EXTRA_AS_PRE)  mainasm33.s  -o ${OBJECTDIR}/mainasm33.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG   -omf=elf -DXPRJ_default=$(CND_CONF)    -Wa,-MD,"${OBJECTDIR}/mainasm33.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,-g,--no-relax$(MP_EXTRA_AS_POST)  -mdfp="${DFP_DIR}/xc16"
 	
 else
-${OBJECTDIR}/mainasm33.o: mainasm33.s  .generated_files/flags/default/b8b12586416f7bd18a447f1e889c0d27eecf1d99 .generated_files/flags/default/74d464f3899599845d713a1d015fd0bf2695bd19
+${OBJECTDIR}/mainasm33.o: mainasm33.s  .generated_files/flags/default/b8b12586416f7bd18a447f1e889c0d27eecf1d99 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/mainasm33.o.d 
 	@${RM} ${OBJECTDIR}/mainasm33.o 

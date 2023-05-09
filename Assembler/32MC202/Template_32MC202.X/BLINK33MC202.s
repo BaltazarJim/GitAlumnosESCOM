@@ -171,8 +171,8 @@ CYCLE1:
     PUSH    W9	    ;ARGUMENT: HOW MANY MILISECONDS
     DEC	    W9,	    W9
     DO	    W9,	    B2
-	MOV	    #3682,	W0	;1ms / 542ns = 1845 pulses
-	REPEAT  W0
+	MOV	    #3682,	W0	;1ms / 271ns = 3686 pulses - some of them
+	REPEAT  W0			;;for the call and return.
 	NOP
     B2: NOP
     
