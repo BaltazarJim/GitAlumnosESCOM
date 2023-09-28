@@ -114,7 +114,7 @@ __reset:
 
     SETM    AD1PCFGL  ;PORTB AS DIGITAL
     CLR	    TRISB
-    MOV	    #250,   W9	    ;PARAMETER FOR DELAY_ms(w9)
+    MOV	    #1,   W9	    ;PARAMETER FOR DELAY_ms(w9)
 
 
 done:
@@ -144,8 +144,8 @@ BRA     done              ;Place holder for last line of executed code
 ;DEC(1) + BRA(2) = 3 pulses in total
 ;(BRA uses 2 CLK pulses when it jumps and just one if it does not)
 
-;65536 * 3 cycles * 271 ns = 17.77 ms
-;Thus, "CYCLE1" must be repeated 56 times to delay 1s
+;65536 * 3 cycles * 271 ns = 53.28 ms
+;Thus, "CYCLE1" must be repeated 19 times to delay 1s
 DELAY_1s:
     PUSH	    W0
     PUSH	    W1	
@@ -171,7 +171,7 @@ CYCLE1:
     PUSH    W9	    ;ARGUMENT: HOW MANY MILISECONDS
     DEC	    W9,	    W9
     DO	    W9,	    B2
-	MOV	    #3682,	W0	;1ms / 271ns = 3686 pulses - some of them
+	MOV	    #3,	W0	;1ms / 271ns = 3686 pulses - some of them
 	REPEAT  W0			;;for the call and return.
 	NOP
     B2: NOP
